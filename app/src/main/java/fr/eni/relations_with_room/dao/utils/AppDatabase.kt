@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import fr.eni.relations_with_room.dao.UserDao
+import fr.eni.relations_with_room.model.Playlist
 import fr.eni.relations_with_room.model.User
 
 import java.util.concurrent.Executors
@@ -15,7 +16,7 @@ fun ioThread(f : () -> Unit) {
     IO_EXECUTOR.execute(f)
 }
 
-@Database(entities = arrayOf(User::class), version = 1,exportSchema = false)
+@Database(entities = arrayOf(User::class,Playlist::class), version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 

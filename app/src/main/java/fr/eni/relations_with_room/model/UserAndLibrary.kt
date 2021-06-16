@@ -3,11 +3,11 @@ package fr.eni.relations_with_room.model
 import androidx.room.Embedded
 import androidx.room.Relation
 
-data class UserAndLibrary(
+data class UserWithPlaylists(
     @Embedded val user: User,
     @Relation(
         parentColumn = "userId",
-        entityColumn = "userOwnerId"
+        entityColumn = "userCreatorId"
     )
-    val library: Library
+    val playlists: List<Playlist>
 )

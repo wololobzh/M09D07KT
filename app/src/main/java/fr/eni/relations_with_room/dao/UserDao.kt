@@ -1,12 +1,18 @@
 package fr.eni.relations_with_room.dao
 
 import androidx.room.*
-import fr.eni.relations_with_room.model.UserAndLibrary
+import fr.eni.relations_with_room.model.*
 
 
 @Dao
 interface UserDao {
     @Transaction
     @Query("SELECT * FROM User")
-    fun getUsersAndLibraries(): List<UserAndLibrary>
+    fun getUsersWithPlaylists(): List<UserWithPlaylists>
+
+    @Insert
+    fun insert(library: Playlist)
+
+    @Insert
+    fun insert(user: User)
 }
