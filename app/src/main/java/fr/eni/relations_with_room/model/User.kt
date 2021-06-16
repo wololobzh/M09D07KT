@@ -6,10 +6,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class User (
-    @PrimaryKey(autoGenerate = true) var id:Long = 0L,
-    var lastName:String,
-    var firstname:String,
-    @Embedded
-    val address: Address?
+data class User(
+    @PrimaryKey val userId: Long,
+    val name: String,
+    val age: Int
 )
+
+
